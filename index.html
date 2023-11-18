@@ -274,7 +274,7 @@
 			position: relative;
 			width: 30px;
 			height: 30px;
-			border: 1px solid #000;
+			border: 2px solid #000;
 			display: inline-block;
 			cursor: pointer;
 		}
@@ -350,7 +350,7 @@
 
 		<div id="facts_page" class="page" style="left: -100%">
 			<!--Страница с фактами-->
-			<div class="block block_name">Факты</div>
+			<div class="block block_name"><b><p style="font-size: 30px;">Факты</p></b></div>
 			<div class="block main"></div>
 			<div class="block basement">
 				<button class="base" style="left: 5%;background: linear-gradient(45deg, #943c3c, #de7575)">Выход</button>
@@ -360,7 +360,7 @@
 
 		<div id="answer_page" class="page" style="left: -100%">
 			<!--Страницы с ответами-->
-			<div class="block block_name">Ответьте на вопросы:</div>
+			<div class="block block_name"><b><p style="font-size: 30px;">Ответьте на вопросы:</b></p></div>
 			<div class="block main"></div>
 			<div class="block basement">
 				<button class="base" style="left: 5%;background: linear-gradient(45deg, #943c3c, #de7575)">Выход</button>
@@ -424,7 +424,7 @@
 	/* =========================
 		Заготовка
 	========================= */
-	vkBridge.send("VKWebAppInit");
+	
 
 	// Кэшируем дерево и страницу для быстрых последующих вызовов
 	var d = document, s = self || window,
@@ -544,17 +544,17 @@
 	d.querySelector('#rzd').onclick = () => {
 
 		// Проверяем доступен ли данный раздел игроку
-		if (user.open_razdel >= razdel_key) {
+		//if (user.open_razdel >= razdel_key) {
 
 			random_fact(); // Запускаем факты
 			open_page('#facts_page', false); // Открываем страницу с фактами
 
-		} else {
+		//} else {
 
 			// Выводим сообщение об ошибке
-			d.querySelector('#black-background').style.display = 'block';
-			d.querySelector('#infoWarning').innerText = `Данный раздел вам еще недоступен, пройдите прошлый`;
-		}
+			//d.querySelector('#black-background').style.display = 'block';
+			//d.querySelector('#infoWarning').innerText = `Данный раздел вам еще недоступен, пройдите прошлый`;
+		//}
 	}
 
 	/* =========================
