@@ -544,17 +544,17 @@
 	d.querySelector('#rzd').onclick = () => {
 
 		// Проверяем доступен ли данный раздел игроку
-		//if (user.open_razdel >= razdel_key) {
+		if (user.open_razdel >= razdel_key) {
 
 			random_fact(); // Запускаем факты
 			open_page('#facts_page', false); // Открываем страницу с фактами
 
-		//} else {
+		} else {
 
 			// Выводим сообщение об ошибке
-			//d.querySelector('#black-background').style.display = 'block';
-			//d.querySelector('#infoWarning').innerText = `Данный раздел вам еще недоступен, пройдите прошлый`;
-		//}
+			d.querySelector('#black-background').style.display = 'block';
+			d.querySelector('#infoWarning').innerText = `Данный раздел вам еще недоступен, пройдите прошлый`;
+		}
 	}
 
 	/* =========================
