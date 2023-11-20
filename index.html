@@ -134,15 +134,15 @@
 			top: 50px;
 		}
 
-        #kn {
-            width: 100%;
-            height: 60px;
-            position: absolute;
-            background: linear-gradient(270deg, #fcff9e 0%, #c67700 100%);
-            bottom: 50px;
-            display: flex;
-            justify-content: space-around;
-        }
+		#kn {
+			width: 100%;
+			height: 60px;
+			position: absolute;
+			background: linear-gradient(270deg, #fcff9e 0%, #c67700 100%);
+			bottom: 50px;
+			display: flex;
+			justify-content: space-around;
+		}
 
 		#pn {
 			width: 100%;
@@ -190,23 +190,23 @@
 			height: fit-content;
 		}
 
-        .info {
-            width: 35%;
-            height: 60px;
-            position: absolute;
-        }
+		.info {
+			width: 35%;
+			height: 60px;
+			position: absolute;
+		}
 
-        .statist {
-            width: 35%;
-            height: 60px;
-            position: absolute;
-        }
+		.statist {
+			width: 35%;
+			height: 60px;
+			position: absolute;
+		}
 
-        .friend {
-            width: 15%;
-            height: 60px;
-            position: absolute;
-        }
+		.friend {
+			width: 15%;
+			height: 60px;
+			position: absolute;
+		}
 
 		.arrow {
 			width: 15%;
@@ -271,12 +271,16 @@
 		}
 
 		.voice {
-			position: relative;
+			position: absolute;
 			width: 30px;
 			height: 30px;
 			border: 2px solid #000;
 			display: inline-block;
 			cursor: pointer;
+			float: left;
+    		top: 0;
+    		bottom: 0;
+    		margin: auto;
 		}
 
 		/* =========================
@@ -424,9 +428,9 @@
 	/* =========================
 		Заготовка
 	========================= */
-	
+
 	vkBridge.send("VKWebAppInit")
-	
+
 	// Кэшируем дерево и страницу для быстрых последующих вызовов
 	var d = document, s = self || window,
 		user, // Данные об игроке
@@ -442,8 +446,8 @@
 		d.querySelector(from).style.left = (close === true) ? "-100%" : 0;
 	}
 
-	/* Загружаем данные игрока */
-	vkBridge.send('VKWebAppStorageGet', { keys: ['game'] }).then(function (data) {
+    /* Загружаем данные игрока */
+	vkBridge.send('VKWebAppStorageGet', { keys: ['game'] }).then(function (data) {*/
 
 		user = (data.keys[0].value != '' && data.keys[0].value != null) ?
 			JSON.parse(data.keys[0].value) : {
@@ -798,7 +802,7 @@
 				user.stats.time[razdel[razdel_key]] = (getTime - timeAnswer);
 
 			// Открываем новый раздел если это необходимо
-			if (user.open_razdel == razdel_key && vern >= 1) {
+			if (user.open_razdel == razdel_key && vern >= 2) {
 
 				d.querySelector('#model').style.backgroundImage = `url(images/model/${user.open_razdel}.png)`;
 				user.open_razdel = razdel_key + 1;
@@ -824,7 +828,7 @@
 
 				`<div class="fact">
 							<div class="voice" onclick="background_voice (this)" data-answer="${count_answer}"></div>
-							${fact[razdel_key][random_fact_array[count_voice]].otvet[count_answer]}
+							<div style="left: 40px; position: relative; width: calc(100% - 40px)" >${fact[razdel_key][random_fact_array[count_voice]].otvet[count_answer]}</div>
 						</div>`
 			);
 			count_answer++;
