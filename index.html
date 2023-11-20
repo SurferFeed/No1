@@ -447,7 +447,7 @@
 	}
 
     /* Загружаем данные игрока */
-	vkBridge.send('VKWebAppStorageGet', { keys: ['game'] }).then(function (data) {*/
+	vkBridge.send('VKWebAppStorageGet', { keys: ['game'] }).then(function (data) {
 
 		user = (data.keys[0].value != '' && data.keys[0].value != null) ?
 			JSON.parse(data.keys[0].value) : {
