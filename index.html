@@ -439,7 +439,7 @@
 		Заготовка
 	========================= */
 
-	//vkBridge.send("VKWebAppInit")
+	vkBridge.send("VKWebAppInit")
 
 	// Кэшируем дерево и страницу для быстрых последующих вызовов
 	var d = document, s = self || window,
@@ -560,7 +560,7 @@
 		d.querySelector('#rzd').innerHTML = `<span class="flare"></span>` + razdel[razdel_key];
 
 		// Показываем модель дома
-		// d.querySelector('#model').style.backgroundImage = `url(images/model/${razdel_key}.png)`;
+		d.querySelector('#model').style.backgroundImage = `url(images/model/${razdel_key}.png)`;
 
 		/* Вещаем замочки при необходимости */
 		d.querySelectorAll('.lock')[0].style.display = ((razdel_key - 1) == 0 && user.open_razdel < Object.keys(razdel).length) ? 'block' : 'none';
