@@ -517,7 +517,7 @@
 
 			vkBridge.send('VKWebAppStorageSet', { key: 'game', value: '' }).then(function () {
 
-				d.location.reload ();
+				setTimeout(()=>{d.location.reload ();}, 2000)
 			});
 		}
 	}
